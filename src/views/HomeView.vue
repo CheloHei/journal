@@ -11,8 +11,10 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  methods:{
+    goToDayBook(){
+    this.$router.push({name:'no-entry'})
+  }
   }
 }
 </script>
