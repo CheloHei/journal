@@ -1,6 +1,17 @@
 <template>
     <Navbar/>
 
+    <div class="row justify-content-md-center" v-if="isLoading">
+        <div class="col-3 alert-info text-center mt-5">
+            Espere por favor ....
+            <h3 class="font-awesome">
+                <i class="fa fa-spinner fa-spin">
+
+                </i>
+            </h3>
+        </div>
+    </div>
+
     <div class="d-flex">
         <div class="col-4">
             <EntryList/>
@@ -14,11 +25,21 @@
 
 <script>
 import { defineAsyncComponent } from 'vue'
+import {mapActions,mapState} from 'vuex'
 
 export default {
     components: {
         Navbar:defineAsyncComponent(()=>import('../components/Navbar.vue')),
         EntryList:defineAsyncComponent(()=>import('../components/EntryList.vue'))
+    },
+    methods:{
+        ...mapActions('journal',['loadEntries']),
+    },
+    computed:{
+        ...mapState('journal',['isLoading'])
+    },
+    created(){
+        this.loadEntries()
     }
 }
 </script>
