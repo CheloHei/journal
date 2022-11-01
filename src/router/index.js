@@ -8,7 +8,6 @@ import daybookRouter from '../modules/daybook/router'
 const routes = [
   {
     path: '/',
-    name: 'home',
     beforeEnter:[isAuthenticatedGuard],
     ...daybookRouter
   },
@@ -16,11 +15,11 @@ const routes = [
     path: '/auth',
     ...authRouter
   },
-  {
-    path: '/daybook',
-    beforeEnter:[isAuthenticatedGuard],
-    ...daybookRouter
-  },
+  // {
+  //   path: '/daybook',
+  //   beforeEnter:[isAuthenticatedGuard],
+  //   ...daybookRouter
+  // },
 ]
 
 const router = createRouter({
