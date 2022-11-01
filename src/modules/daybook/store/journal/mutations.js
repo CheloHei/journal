@@ -15,3 +15,6 @@ export const deleteEntry = (state,id) => {
     //const index = state.entries.findIndex(item => item.id !== entry.id)
     state.entries = state.entries.filter(item => item.id !== id)
 }
+export const clearEntries = (state) => {
+    state.entries = []
+}
